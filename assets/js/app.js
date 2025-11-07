@@ -2,7 +2,7 @@ const quizContainer = document.getElementById('quiz-container');
 const answerButtons = document.querySelectorAll('.answer-btn');
 const finalCtaButton = document.getElementById('final-cta-btn');
 
-const finalRedirectURL = 'https://your-cpa-offer-link.com';
+const finalRedirectURL = 'https://www.google.com/';
 
 let currentStep = 1;
 
@@ -27,10 +27,8 @@ function showNextStep(nextStepNumber) {
     if (nextStepElement) {
         nextStepElement.classList.remove('hidden');
         nextStepElement.classList.add('active');
-        
-        quizContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-        if (currentStep === 4) { 
+        if (currentStep === 4) {
             triggerConfetti();
         }
     }
@@ -38,8 +36,9 @@ function showNextStep(nextStepNumber) {
 
 answerButtons.forEach(button => {
     button.addEventListener('click', (event) => {
+        event.preventDefault();
         const nextStep = parseInt(event.target.dataset.nextStep);
-        
+
         setTimeout(() => {
             showNextStep(nextStep);
         }, 200);
