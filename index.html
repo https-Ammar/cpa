@@ -1,64 +1,94 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CPA Page - 3 Step Quiz</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-</head>
-<body>
-
-  <aside>
-
+  </head>
+  <body>
+    <div class="logo" style="background-image: url(./assets/img/logo.png)"></div>
+    <aside>
       <header class="page-header">
-            <h1>Answer 3 Quick Questions to Get Started!</h1>
-            <p>It won't take more than 30 seconds.</p>
-        </header>
+        <h1>Answer 3 Quick Questions to Get Started!</h1>
+        <p class="note">
+          It won't take more than <span id="count">30</span> seconds.
+        </p>
+      </header>
 
-        
-    <main class="container">
-    
+      <main class="container">
         <div id="quiz-container">
-            
-            <div id="step-1" class="question-step active">
-                <p class="question-title"> **Question 1 of 3:** What is your primary goal for visiting this page?</p>
-                <div class="options-group">
-                    <button class="answer-btn" data-next-step="2">I am looking for detailed information</button>
-                    <button class="answer-btn" data-next-step="2">I want immediate consultation</button>
-                    <button class="answer-btn" data-next-step="2">I am comparing available options</button>
-                </div>
+          <div id="step-1" class="question-step active">
+            <sup class="Question"> **Question 1 of 3:** </sup>
+            <p class="question-title">
+              What is your primary goal for visiting this page?
+            </p>
+            <div class="options-group">
+              <button class="answer-btn" data-next-step="2">
+                I am looking for detailed information
+              </button>
+              <button class="answer-btn" data-next-step="2">
+                I want immediate consultation
+              </button>
+              <button class="answer-btn" data-next-step="2">
+                I am comparing available options
+              </button>
             </div>
+          </div>
 
-            <div id="step-2" class="question-step hidden">
-                <p class="question-title"> **Question 2 of 3:** Are you ready to start now, or do you need extra time?</p>
-                <div class="options-group">
-                    <button class="answer-btn" data-next-step="3">Ready to start now</button>
-                    <button class="answer-btn" data-next-step="3">I will start within the next week</button>
-                </div>
+          <div id="step-2" class="question-step hidden">
+            <sup class="Question"> **Question 2 of 3:** </sup>
+            <p class="question-title">
+              Are you ready to start now, or do you need extra time?
+            </p>
+            <div class="options-group">
+              <button class="answer-btn" data-next-step="3">
+                Ready to start now
+              </button>
+              <button class="answer-btn" data-next-step="3">
+                I will start within the next week
+              </button>
             </div>
+          </div>
 
-            <div id="step-3" class="question-step hidden">
-                <p class="question-title"> **Question 3 of 3:** Which age group do you belong to?</p>
-                <div class="options-group">
-                    <button class="answer-btn" data-next-step="4">Under 25 years old</button>
-                    <button class="answer-btn" data-next-step="4">25 - 40 years old</button>
-                    <button class="answer-btn" data-next-step="4">Over 40 years old</button>
-                </div>
+          <div id="step-3" class="question-step hidden">
+            <sup class="Question"> **Question 3 of 3:** </sup>
+            <p class="question-title">Which age group do you belong to?</p>
+            <div class="options-group">
+              <button class="answer-btn" data-next-step="4">
+                Under 25 years old
+              </button>
+              <button class="answer-btn" data-next-step="4">
+                25 - 40 years old
+              </button>
+              <button class="answer-btn" data-next-step="4">
+                Over 40 years old
+              </button>
             </div>
+          </div>
 
-            <div id="step-4" class="question-step hidden final-step">
-                <p class="question-title finished-text"> **Congratulations!** You have completed the questions.</p>
-                <button id="final-cta-btn">Go to the Offer Page Now </button>
-            </div>
-            
+          <div id="step-4" class="question-step hidden final-step">
+            <p class="question-title finished-text">
+              **Congratulations!** You have completed the questions.
+            </p>
+            <a href="https://www.google.com/">
+              <button id="final-cta-btn">Go to the Offer Page Now</button>
+            </a>
+          </div>
         </div>
-        
-    </main>
-
-
-  </aside>
+      </main>
+    </aside>
 
     <script src="./assets/js/app.js"></script>
-</body>
+
+    <script>
+      let s = 30,
+        el = document.getElementById("count");
+      const timer = setInterval(() => {
+        el.textContent = --s;
+        if (s <= 0) clearInterval(timer);
+      }, 1000);
+    </script>
+  </body>
 </html>
