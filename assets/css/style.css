@@ -23,6 +23,7 @@ body {
     min-height: 100vh;
     padding: 20px;
     color: var(--text-color);
+    overflow: hidden;
 }
 
 .container {
@@ -121,7 +122,7 @@ body {
 @media (max-width: 600px) {
     .container {
         padding: 25px;
-        margin: 10px;
+     
     }
 
     .page-header h1 {
